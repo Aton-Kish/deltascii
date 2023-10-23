@@ -1,0 +1,8 @@
+pre-commit:
+  parallel: true
+  commands:
+    go:
+      glob: "*.go"
+      run: |
+        export TARGETS=$(echo "{staged_files}" | xargs dirname)
+        task lint

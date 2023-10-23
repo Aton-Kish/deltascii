@@ -1,0 +1,13 @@
+{
+  "go.coverOnSave": true,
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["--config=${workspaceFolder}/.golangci.yaml"],
+  "go.toolsManagement.checkForUpdates": "local",
+  "go.useLanguageServer": true,
+
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "[json][jsonc][yaml][markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
