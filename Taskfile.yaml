@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+tasks:
+  install:
+    aliases:
+      - default
+    cmds:
+      - go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+    desc: install deps
+    preconditions:
+      - which go
+
+  clean:
+    cmds:
+      - rm -f $(go env GOPATH)/bin/golangci-lint
+      - go clean -modcache
+    desc: clean deps
+    preconditions:
+      - which go
+
+  # lint
+  lint:
+    cmds:
+      - golangci-lint run {{ .OPTIONS }} ${TARGETS}
+    desc: lint
+    env:
+      TARGETS: ./...
+    preconditions:
+      - which golangci-lint
+
+  format:
+    cmds:
+      - task: lint
+        vars:
+          OPTIONS: --fix
+    desc: format
