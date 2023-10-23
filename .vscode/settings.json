@@ -1,0 +1,11 @@
+{
+  "go.coverOnSave": true,
+  "go.toolsManagement.checkForUpdates": "local",
+  "go.useLanguageServer": true,
+
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "[json][jsonc][yaml][markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

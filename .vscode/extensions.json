@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "golang.go",
+
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "redhat.vscode-yaml",
+    "shardulm94.trailing-spaces",
+    "streetsidesoftware.code-spell-checker",
+    "task.vscode-task"
+  ],
+  "unwantedRecommendations": []
+}
