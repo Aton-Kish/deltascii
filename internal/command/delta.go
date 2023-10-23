@@ -18,24 +18,67 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package main
+package command
 
 import (
 	"context"
-	"os"
+	"sync"
 
-	"github.com/Aton-Kish/deltascii/internal/command"
+	"github.com/spf13/cobra"
 )
 
-func main() {
-	rootCmd := command.NewRootCommand()
-	deltaCmd := command.NewDeltaCommand()
-	sigmaCmd := command.NewSigmaCommand()
+type deltaCommand struct {
+	options *options
 
-	rootCmd.AddCommand(deltaCmd, sigmaCmd)
+	cmd  *cobra.Command
+	once sync.Once
+}
 
-	ctx := context.Background()
-	if err := rootCmd.Execute(ctx); err != nil {
-		os.Exit(1)
+func NewDeltaCommand(optFns ...func(o *options)) command {
+	return &deltaCommand{
+		options: newOptions(optFns...),
 	}
+}
+
+func (c *deltaCommand) Execute(ctx context.Context, args ...string) error {
+	cmd := c.command()
+	cmd.SetArgs(args)
+
+	if err := cmd.ExecuteContext(ctx); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (c *deltaCommand) AddCommand(cmds ...command) {
+	subs := make([]*cobra.Command, 0, len(cmds))
+	for _, cmd := range cmds {
+		subs = append(subs, cmd.command())
+	}
+
+	c.command().AddCommand(subs...)
+}
+
+func (c *deltaCommand) command() *cobra.Command {
+	c.once.Do(func() {
+		c.cmd = &cobra.Command{
+			Use:     "delta",
+			Aliases: []string{"Δ"},
+			Short:   "ASCII(t+1)-ASCII(t)",
+			RunE: func(cmd *cobra.Command, args []string) error {
+				if err := cmd.Help(); err != nil {
+					return err
+				}
+
+				return nil
+			},
+			SilenceUsage: true,
+		}
+
+		c.cmd.SetIn(c.options.stdio.in)
+		c.cmd.SetOutput(c.options.stdio.err)
+	})
+
+	return c.cmd
 }
