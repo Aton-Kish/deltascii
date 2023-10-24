@@ -3,6 +3,7 @@ module github.com/Aton-Kish/deltascii
 go 1.21.1
 
 require (
+	github.com/shopspring/decimal v1.3.1
 	github.com/spf13/cobra v1.7.0
 	github.com/stretchr/testify v1.8.4
 )
