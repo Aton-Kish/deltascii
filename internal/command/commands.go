@@ -45,3 +45,49 @@ func NewRootCommand(optFns ...func(o *options)) *cobra.Command {
 
 	return cmd
 }
+
+func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
+	opts := newOptions(optFns...)
+
+	cmd := &cobra.Command{
+		Use:     "delta",
+		Aliases: []string{"Δ"},
+		Short:   "ΔSCII(t) = ASCII(t+1) - ASCII(t)",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			if err := cmd.Help(); err != nil {
+				return err
+			}
+
+			return nil
+		},
+		SilenceUsage: true,
+	}
+
+	cmd.SetIn(opts.stdio.in)
+	cmd.SetOutput(opts.stdio.err)
+
+	return cmd
+}
+
+func NewSummationCommand(optFns ...func(o *options)) *cobra.Command {
+	opts := newOptions(optFns...)
+
+	cmd := &cobra.Command{
+		Use:     "summation",
+		Aliases: []string{"Σ"},
+		Short:   "ASCII(t) = ΣΔSCII(t)",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			if err := cmd.Help(); err != nil {
+				return err
+			}
+
+			return nil
+		},
+		SilenceUsage: true,
+	}
+
+	cmd.SetIn(opts.stdio.in)
+	cmd.SetOutput(opts.stdio.err)
+
+	return cmd
+}
