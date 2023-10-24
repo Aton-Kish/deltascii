@@ -21,64 +21,34 @@
 package command
 
 import (
-	"context"
-	"sync"
-
-	"github.com/spf13/cobra"
+	"io"
+	"os"
 )
 
-type sigmaCommand struct {
-	options *options
-
-	cmd  *cobra.Command
-	once sync.Once
+type stdio struct {
+	in  io.Reader
+	out io.Writer
+	err io.Writer
 }
 
-func NewSigmaCommand(optFns ...func(o *options)) command {
-	return &sigmaCommand{
-		options: newOptions(optFns...),
-	}
+type options struct {
+	stdio stdio
 }
 
-func (c *sigmaCommand) Execute(ctx context.Context, args ...string) error {
-	cmd := c.command()
-	cmd.SetArgs(args)
-
-	if err := cmd.ExecuteContext(ctx); err != nil {
-		return err
+func newOptions(optFns ...func(o *options)) *options {
+	o := &options{
+		stdio: stdio{in: os.Stdin, out: os.Stdout, err: os.Stderr},
 	}
 
-	return nil
-}
-
-func (c *sigmaCommand) AddCommand(cmds ...command) {
-	subs := make([]*cobra.Command, 0, len(cmds))
-	for _, cmd := range cmds {
-		subs = append(subs, cmd.command())
+	for _, fn := range optFns {
+		fn(o)
 	}
 
-	c.command().AddCommand(subs...)
+	return o
 }
 
-func (c *sigmaCommand) command() *cobra.Command {
-	c.once.Do(func() {
-		c.cmd = &cobra.Command{
-			Use:     "sigma",
-			Aliases: []string{"Σ"},
-			Short:   "ΣΔSCII(t)",
-			RunE: func(cmd *cobra.Command, args []string) error {
-				if err := cmd.Help(); err != nil {
-					return err
-				}
-
-				return nil
-			},
-			SilenceUsage: true,
-		}
-
-		c.cmd.SetIn(c.options.stdio.in)
-		c.cmd.SetOutput(c.options.stdio.err)
-	})
-
-	return c.cmd
+func WithStdio(in io.Reader, out, err io.Writer) func(o *options) {
+	return func(o *options) {
+		o.stdio = stdio{in: in, out: out, err: err}
+	}
 }

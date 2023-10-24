@@ -21,63 +21,27 @@
 package command
 
 import (
-	"context"
-	"sync"
-
 	"github.com/spf13/cobra"
 )
 
-type rootCommand struct {
-	options *options
+func NewRootCommand(optFns ...func(o *options)) *cobra.Command {
+	opts := newOptions(optFns...)
 
-	cmd  *cobra.Command
-	once sync.Once
-}
+	cmd := &cobra.Command{
+		Use:   "deltascii",
+		Short: "ΔSCII",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			if err := cmd.Help(); err != nil {
+				return err
+			}
 
-func NewRootCommand(optFns ...func(o *options)) command {
-	return &rootCommand{
-		options: newOptions(optFns...),
-	}
-}
-
-func (c *rootCommand) Execute(ctx context.Context, args ...string) error {
-	cmd := c.command()
-	cmd.SetArgs(args)
-
-	if err := cmd.ExecuteContext(ctx); err != nil {
-		return err
+			return nil
+		},
+		SilenceUsage: true,
 	}
 
-	return nil
-}
+	cmd.SetIn(opts.stdio.in)
+	cmd.SetOutput(opts.stdio.err)
 
-func (c *rootCommand) AddCommand(cmds ...command) {
-	subs := make([]*cobra.Command, 0, len(cmds))
-	for _, cmd := range cmds {
-		subs = append(subs, cmd.command())
-	}
-
-	c.command().AddCommand(subs...)
-}
-
-func (c *rootCommand) command() *cobra.Command {
-	c.once.Do(func() {
-		c.cmd = &cobra.Command{
-			Use:   "deltascii",
-			Short: "ΔSCII",
-			RunE: func(cmd *cobra.Command, args []string) error {
-				if err := cmd.Help(); err != nil {
-					return err
-				}
-
-				return nil
-			},
-			SilenceUsage: true,
-		}
-
-		c.cmd.SetIn(c.options.stdio.in)
-		c.cmd.SetOutput(c.options.stdio.err)
-	})
-
-	return c.cmd
+	return cmd
 }

@@ -35,7 +35,7 @@ func main() {
 	rootCmd.AddCommand(deltaCmd, summationCmd)
 
 	ctx := context.Background()
-	if err := rootCmd.Execute(ctx); err != nil {
+	if err := rootCmd.ExecuteContext(ctx); err != nil {
 		os.Exit(1)
 	}
 }

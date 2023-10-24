@@ -21,64 +21,28 @@
 package command
 
 import (
-	"context"
-	"sync"
-
 	"github.com/spf13/cobra"
 )
 
-type summationCommand struct {
-	options *options
+func NewSummationCommand(optFns ...func(o *options)) *cobra.Command {
+	opts := newOptions(optFns...)
 
-	cmd  *cobra.Command
-	once sync.Once
-}
+	cmd := &cobra.Command{
+		Use:     "summation",
+		Aliases: []string{"Σ"},
+		Short:   "ASCII(t) = ΣΔSCII(t)",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			if err := cmd.Help(); err != nil {
+				return err
+			}
 
-func NewSummationCommand(optFns ...func(o *options)) command {
-	return &summationCommand{
-		options: newOptions(optFns...),
-	}
-}
-
-func (c *summationCommand) Execute(ctx context.Context, args ...string) error {
-	cmd := c.command()
-	cmd.SetArgs(args)
-
-	if err := cmd.ExecuteContext(ctx); err != nil {
-		return err
+			return nil
+		},
+		SilenceUsage: true,
 	}
 
-	return nil
-}
+	cmd.SetIn(opts.stdio.in)
+	cmd.SetOutput(opts.stdio.err)
 
-func (c *summationCommand) AddCommand(cmds ...command) {
-	subs := make([]*cobra.Command, 0, len(cmds))
-	for _, cmd := range cmds {
-		subs = append(subs, cmd.command())
-	}
-
-	c.command().AddCommand(subs...)
-}
-
-func (c *summationCommand) command() *cobra.Command {
-	c.once.Do(func() {
-		c.cmd = &cobra.Command{
-			Use:     "summation",
-			Aliases: []string{"Σ"},
-			Short:   "ASCII(t) = ΣΔSCII(t)",
-			RunE: func(cmd *cobra.Command, args []string) error {
-				if err := cmd.Help(); err != nil {
-					return err
-				}
-
-				return nil
-			},
-			SilenceUsage: true,
-		}
-
-		c.cmd.SetIn(c.options.stdio.in)
-		c.cmd.SetOutput(c.options.stdio.err)
-	})
-
-	return c.cmd
+	return cmd
 }
