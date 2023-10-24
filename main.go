@@ -30,9 +30,9 @@ import (
 func main() {
 	rootCmd := command.NewRootCommand()
 	deltaCmd := command.NewDeltaCommand()
-	sigmaCmd := command.NewSigmaCommand()
+	summationCmd := command.NewSummationCommand()
 
-	rootCmd.AddCommand(deltaCmd, sigmaCmd)
+	rootCmd.AddCommand(deltaCmd, summationCmd)
 
 	ctx := context.Background()
 	if err := rootCmd.Execute(ctx); err != nil {

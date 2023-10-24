@@ -27,20 +27,20 @@ import (
 	"github.com/spf13/cobra"
 )
 
-type deltaCommand struct {
+type summationCommand struct {
 	options *options
 
 	cmd  *cobra.Command
 	once sync.Once
 }
 
-func NewDeltaCommand(optFns ...func(o *options)) command {
-	return &deltaCommand{
+func NewSummationCommand(optFns ...func(o *options)) command {
+	return &summationCommand{
 		options: newOptions(optFns...),
 	}
 }
 
-func (c *deltaCommand) Execute(ctx context.Context, args ...string) error {
+func (c *summationCommand) Execute(ctx context.Context, args ...string) error {
 	cmd := c.command()
 	cmd.SetArgs(args)
 
@@ -51,7 +51,7 @@ func (c *deltaCommand) Execute(ctx context.Context, args ...string) error {
 	return nil
 }
 
-func (c *deltaCommand) AddCommand(cmds ...command) {
+func (c *summationCommand) AddCommand(cmds ...command) {
 	subs := make([]*cobra.Command, 0, len(cmds))
 	for _, cmd := range cmds {
 		subs = append(subs, cmd.command())
@@ -60,12 +60,12 @@ func (c *deltaCommand) AddCommand(cmds ...command) {
 	c.command().AddCommand(subs...)
 }
 
-func (c *deltaCommand) command() *cobra.Command {
+func (c *summationCommand) command() *cobra.Command {
 	c.once.Do(func() {
 		c.cmd = &cobra.Command{
-			Use:     "delta",
-			Aliases: []string{"Δ"},
-			Short:   "ΔSCII(t) = ASCII(t+1)-ASCII(t)",
+			Use:     "summation",
+			Aliases: []string{"Σ"},
+			Short:   "ASCII(t) = ΣΔSCII(t)",
 			RunE: func(cmd *cobra.Command, args []string) error {
 				if err := cmd.Help(); err != nil {
 					return err
