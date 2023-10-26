@@ -115,18 +115,18 @@ func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
 	return cmd
 }
 
-type summationFlags struct {
+type accumulateFlags struct {
 	input  string
 	output string
 }
 
-func NewSummationCommand(optFns ...func(o *options)) *cobra.Command {
+func NewAccumulateCommand(optFns ...func(o *options)) *cobra.Command {
 	opts := newOptions(optFns...)
 
-	flags := new(summationFlags)
+	flags := new(accumulateFlags)
 
 	cmd := &cobra.Command{
-		Use:     "summation",
+		Use:     "accumulate",
 		Aliases: []string{"Σ"},
 		Short:   "ASCII(t) = ΣΔSCII(t)",
 		Args:    cobra.NoArgs,
@@ -144,7 +144,7 @@ func NewSummationCommand(optFns ...func(o *options)) *cobra.Command {
 			}
 
 			buf := new(bytes.Buffer)
-			if err := convertASCIICast(r, buf, summationFn); err != nil {
+			if err := convertASCIICast(r, buf, accumulateFn); err != nil {
 				return err
 			}
 
@@ -184,7 +184,7 @@ var (
 		return val, delta
 	}
 
-	summationFn calcFn = func(acc, val float64) (newAcc, newVal float64) {
+	accumulateFn calcFn = func(acc, val float64) (newAcc, newVal float64) {
 		sum := decimal.NewFromFloat(val).Add(decimal.NewFromFloat(acc)).InexactFloat64()
 		return sum, sum
 	}
