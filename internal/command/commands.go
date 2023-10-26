@@ -23,6 +23,7 @@ package command
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
 	"os"
 
@@ -67,21 +68,33 @@ func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
 		Use:     "delta",
 		Aliases: []string{"Δ"},
 		Short:   "ΔSCII(t) = ASCII(t+1) - ASCII(t)",
+		Args:    cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			data, err := os.ReadFile(flags.input)
-			if err != nil {
-				return err
+			var r io.Reader
+			if flags.input == "-" {
+				r = cmd.InOrStdin()
+			} else {
+				data, err := os.ReadFile(flags.input)
+				if err != nil {
+					return err
+				}
+
+				r = bytes.NewReader(data)
 			}
 
-			r := bytes.NewReader(data)
 			buf := new(bytes.Buffer)
-
 			if err := convertASCIICast(r, buf, deltaFn); err != nil {
 				return err
 			}
 
-			if err := os.WriteFile(flags.output, buf.Bytes(), 0o644); err != nil {
-				return err
+			if flags.output == "-" {
+				if _, err := fmt.Fprint(cmd.OutOrStdout(), buf.String()); err != nil {
+					return err
+				}
+			} else {
+				if err := os.WriteFile(flags.output, buf.Bytes(), 0o644); err != nil {
+					return err
+				}
 			}
 
 			return nil
@@ -89,14 +102,15 @@ func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
 		SilenceUsage: true,
 	}
 
-	cmd.Flags().StringVarP(&flags.input, "input", "i", "", "input asciicast v2 file")
+	cmd.Flags().StringVarP(&flags.input, "input", "i", "", "input asciicast v2 file or `-` (read from stdin)")
 	_ = cmd.MarkFlagRequired("input")
 
-	cmd.Flags().StringVarP(&flags.output, "output", "o", "", "output Δ-asciicast v2 file")
+	cmd.Flags().StringVarP(&flags.output, "output", "o", "", "output Δ-asciicast v2 file or `-` (write to stdout)")
 	_ = cmd.MarkFlagRequired("output")
 
 	cmd.SetIn(opts.stdio.in)
-	cmd.SetOutput(opts.stdio.err)
+	cmd.SetOutput(opts.stdio.out)
+	cmd.SetErr(opts.stdio.err)
 
 	return cmd
 }
@@ -115,21 +129,33 @@ func NewSummationCommand(optFns ...func(o *options)) *cobra.Command {
 		Use:     "summation",
 		Aliases: []string{"Σ"},
 		Short:   "ASCII(t) = ΣΔSCII(t)",
+		Args:    cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			data, err := os.ReadFile(flags.input)
-			if err != nil {
-				return err
+			var r io.Reader
+			if flags.input == "-" {
+				r = cmd.InOrStdin()
+			} else {
+				data, err := os.ReadFile(flags.input)
+				if err != nil {
+					return err
+				}
+
+				r = bytes.NewReader(data)
 			}
 
-			r := bytes.NewReader(data)
 			buf := new(bytes.Buffer)
-
 			if err := convertASCIICast(r, buf, summationFn); err != nil {
 				return err
 			}
 
-			if err := os.WriteFile(flags.output, buf.Bytes(), 0o644); err != nil {
-				return err
+			if flags.output == "-" {
+				if _, err := fmt.Fprint(cmd.OutOrStdout(), buf.String()); err != nil {
+					return err
+				}
+			} else {
+				if err := os.WriteFile(flags.output, buf.Bytes(), 0o644); err != nil {
+					return err
+				}
 			}
 
 			return nil
@@ -137,14 +163,15 @@ func NewSummationCommand(optFns ...func(o *options)) *cobra.Command {
 		SilenceUsage: true,
 	}
 
-	cmd.Flags().StringVarP(&flags.input, "input", "i", "", "input Δ-asciicast v2 file")
+	cmd.Flags().StringVarP(&flags.input, "input", "i", "", "input Δ-asciicast v2 file or `-` (read from stdin)")
 	_ = cmd.MarkFlagRequired("input")
 
-	cmd.Flags().StringVarP(&flags.output, "output", "o", "", "output asciicast v2 file")
+	cmd.Flags().StringVarP(&flags.output, "output", "o", "", "output asciicast v2 file or `-` (write to stdout)")
 	_ = cmd.MarkFlagRequired("output")
 
 	cmd.SetIn(opts.stdio.in)
-	cmd.SetOutput(opts.stdio.err)
+	cmd.SetOutput(opts.stdio.out)
+	cmd.SetErr(opts.stdio.err)
 
 	return cmd
 }
