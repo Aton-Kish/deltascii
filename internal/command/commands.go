@@ -102,10 +102,10 @@ func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
 		SilenceUsage: true,
 	}
 
-	cmd.Flags().StringVarP(&flags.input, "input", "i", "", "input asciicast v2 file or `-` (read from stdin)")
+	cmd.Flags().StringVarP(&flags.input, "input", "i", "", `input asciicast v2 file or "-" (read from stdin)`)
 	_ = cmd.MarkFlagRequired("input")
 
-	cmd.Flags().StringVarP(&flags.output, "output", "o", "", "output Δ-asciicast v2 file or `-` (write to stdout)")
+	cmd.Flags().StringVarP(&flags.output, "output", "o", "", `output Δ-asciicast v2 file or "-" (write to stdout)`)
 	_ = cmd.MarkFlagRequired("output")
 
 	cmd.SetIn(opts.stdio.in)
@@ -163,10 +163,10 @@ func NewAccumulateCommand(optFns ...func(o *options)) *cobra.Command {
 		SilenceUsage: true,
 	}
 
-	cmd.Flags().StringVarP(&flags.input, "input", "i", "", "input Δ-asciicast v2 file or `-` (read from stdin)")
+	cmd.Flags().StringVarP(&flags.input, "input", "i", "", `input Δ-asciicast v2 file or "-" (read from stdin)`)
 	_ = cmd.MarkFlagRequired("input")
 
-	cmd.Flags().StringVarP(&flags.output, "output", "o", "", "output asciicast v2 file or `-` (write to stdout)")
+	cmd.Flags().StringVarP(&flags.output, "output", "o", "", `output asciicast v2 file or "-" (write to stdout)`)
 	_ = cmd.MarkFlagRequired("output")
 
 	cmd.SetIn(opts.stdio.in)
