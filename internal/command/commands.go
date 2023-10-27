@@ -76,7 +76,7 @@ func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "Δ",
 		Aliases: []string{"delta"},
-		Short:   "ΔSCII(t) = ASCII(t) - ASCII(t-1)",
+		Short:   "ΔSCII(n) = ASCII(n) - ASCII(n-1)",
 		Args:    cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var r io.Reader
@@ -137,7 +137,7 @@ func NewAccumulateCommand(optFns ...func(o *options)) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "Σ",
 		Aliases: []string{"accumulate"},
-		Short:   "ASCII(t) = ΣΔSCII(t)",
+		Short:   "ASCII(n) = ΣΔSCII(n)",
 		Args:    cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var r io.Reader
