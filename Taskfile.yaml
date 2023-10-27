@@ -8,6 +8,7 @@ tasks:
     cmds:
       - go install github.com/evilmartians/lefthook@latest && lefthook install
       - go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+      - go install github.com/goreleaser/goreleaser@latest
       - go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
     desc: install deps
     preconditions:
@@ -17,6 +18,7 @@ tasks:
     cmds:
       - lefthook uninstall && rm -f $(go env GOPATH)/bin/lefthook
       - rm -f $(go env GOPATH)/bin/golangci-lint
+      - rm -f $(go env GOPATH)/bin/goreleaser
       - rm -f $(go env GOPATH)/bin/git-chglog
       - go clean -modcache
     desc: clean deps
@@ -69,6 +71,39 @@ tasks:
         vars:
           OPTIONS: -cover -v
     desc: run tests with coverage report (verbose)
+
+  # build
+  build:
+    cmds:
+      - goreleaser {{ or .SubCommand "build" }} --clean --skip=validate {{ .OPTIONS }}
+    desc: build binary
+    preconditions:
+      - which go
+      - which goreleaser
+
+  build:snapshot:
+    cmds:
+      - task: build
+        vars:
+          OPTIONS: --snapshot
+    desc: build binary (snapshot)
+
+  # archive
+  archive:
+    cmds:
+      - task: build
+        vars:
+          SubCommand: release
+          OPTIONS: --skip=publish
+    desc: archive binary
+
+  archive:snapshot:
+    cmds:
+      - task: build
+        vars:
+          SubCommand: release
+          OPTIONS: --skip=publish --snapshot
+    desc: archive binary (snapshot)
 
   # changelog
   changelog:

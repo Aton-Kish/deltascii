@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+
+project_name: deltascii
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: default
+    main: .
+    flags:
+      - -trimpath
+    ldflags:
+      - -s
+      - -w
+    env:
+      - CGO_ENABLED=0
+
+archives:
+  - id: default
+    builds:
+      - default
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - LICENSE
