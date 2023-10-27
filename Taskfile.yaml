@@ -37,3 +37,33 @@ tasks:
         vars:
           OPTIONS: --fix
     desc: format
+
+  # test
+  test:
+    cmds:
+      - go test ./internal/... {{ .OPTIONS }}
+    desc: run tests
+    preconditions:
+      - which go
+
+  test:verbose:
+    cmds:
+      - task: test
+        vars:
+          OPTIONS: -v
+    desc: run tests (verbose)
+
+  # coverage
+  coverage:
+    cmds:
+      - task: test
+        vars:
+          OPTIONS: -cover
+    desc: run tests with coverage report
+
+  coverage:verbose:
+    cmds:
+      - task: test
+        vars:
+          OPTIONS: -cover -v
+    desc: run tests with coverage report (verbose)

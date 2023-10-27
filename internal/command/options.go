@@ -18,24 +18,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package main
+package command
 
 import (
-	"context"
+	"io"
 	"os"
-
-	"github.com/Aton-Kish/deltascii/internal/command"
 )
 
-func main() {
-	rootCmd := command.NewRootCommand()
-	deltaCmd := command.NewDeltaCommand()
-	accCmd := command.NewAccumulateCommand()
+type stdio struct {
+	in  io.Reader
+	out io.Writer
+	err io.Writer
+}
 
-	rootCmd.AddCommand(deltaCmd, accCmd)
+type options struct {
+	stdio stdio
+}
 
-	ctx := context.Background()
-	if err := rootCmd.ExecuteContext(ctx); err != nil {
-		os.Exit(1)
+func newOptions(optFns ...func(o *options)) *options {
+	o := &options{
+		stdio: stdio{in: os.Stdin, out: os.Stdout, err: os.Stderr},
+	}
+
+	for _, fn := range optFns {
+		fn(o)
+	}
+
+	return o
+}
+
+func WithStdio(in io.Reader, out, err io.Writer) func(o *options) {
+	return func(o *options) {
+		o.stdio = stdio{in: in, out: out, err: err}
 	}
 }
