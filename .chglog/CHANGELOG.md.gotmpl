@@ -1,0 +1,49 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+{{- if .Versions }}
+  {{- println "" }}
+<a name="unreleased"></a>
+## [Unreleased]
+  {{- template "VersionDetail" (dict "Version" .Unreleased "RepositoryURL" $.Info.RepositoryURL) }}
+  {{- range .Versions }}
+    {{- println "" }}
+<a name="{{ .Tag.Name }}"></a>
+## {{ if .Tag.Previous }}[{{ .Tag.Name }}]{{ else }}{{ .Tag.Name }}{{ end }} - {{ datetime "2006-01-02" .Tag.Date }}
+    {{- template "VersionDetail" (dict "Version" . "RepositoryURL" $.Info.RepositoryURL) }}
+  {{- end }}
+
+  {{- println "" }}
+[Unreleased]: {{ $.Info.RepositoryURL }}/compare/{{ (index .Versions 0).Tag.Name }}...HEAD
+  {{- range .Versions }}
+    {{- if .Tag.Previous }}
+[{{ .Tag.Name }}]: {{ $.Info.RepositoryURL }}/compare/{{ .Tag.Previous.Name }}...{{ .Tag.Name }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- define "VersionDetail" }}
+  {{- $Version := (get $ "Version") }}
+  {{- $RepositoryURL := (get $ "RepositoryURL") }}
+
+  {{- range $Version.CommitGroups }}
+    {{- println "" }}
+### {{ .Title }}
+    {{- println "" }}
+    {{- range .Commits }}
+- [`{{ .Hash.Short }}`]({{ $RepositoryURL }}/commit/{{ .Hash.Long }}) {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
+    {{- end }}
+  {{- end }}
+
+  {{- range $Version.NoteGroups }}
+    {{- println "" }}
+### {{ .Title }}
+    {{- println "" }}
+    {{- range .Notes }}
+- {{ trim (indent .Body 2) }}
+    {{- end }}
+  {{- end }}
+{{- end }}

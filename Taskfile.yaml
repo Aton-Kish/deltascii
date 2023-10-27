@@ -8,6 +8,7 @@ tasks:
     cmds:
       - go install github.com/evilmartians/lefthook@latest && lefthook install
       - go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+      - go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
     desc: install deps
     preconditions:
       - which go
@@ -16,6 +17,7 @@ tasks:
     cmds:
       - lefthook uninstall && rm -f $(go env GOPATH)/bin/lefthook
       - rm -f $(go env GOPATH)/bin/golangci-lint
+      - rm -f $(go env GOPATH)/bin/git-chglog
       - go clean -modcache
     desc: clean deps
     preconditions:
@@ -67,3 +69,26 @@ tasks:
         vars:
           OPTIONS: -cover -v
     desc: run tests with coverage report (verbose)
+
+  # changelog
+  changelog:
+    cmds:
+      - git-chglog --config .chglog/config.yaml --output CHANGELOG.md {{ if .NEXT_VERSION }}--next-tag ${NEXT_VERSION}{{ end }}
+    desc: generate changelog
+    preconditions:
+      - which git-chglog
+
+  # release
+  release:
+    cmds:
+      - task: changelog
+      - echo ${NEXT_VERSION} > VERSION
+      - git add CHANGELOG.md VERSION
+      - 'LEFTHOOK=0 git commit -m "docs: updated CHANGELOG for ${NEXT_VERSION}"'
+      - git tag ${NEXT_VERSION}
+      - git push origin main ${NEXT_VERSION}
+    desc: release a new version
+    preconditions:
+      - which git
+      - '[[ "${NEXT_VERSION}" =~ ^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$ ]]'
+      - '[[ "$(git branch --show-current)" == "main" ]]'
