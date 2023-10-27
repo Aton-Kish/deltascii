@@ -1,0 +1,42 @@
+style: github
+template: CHANGELOG.md.gotmpl
+info:
+  title: CHANGELOG
+  repository_url: https://github.com/Aton-Kish/deltascii
+options:
+  commits:
+    filters:
+      Type:
+        - feat
+        - fix
+        - docs
+        - style
+        - refactor
+        - perf
+        - test
+        - build
+        - ci
+        - chore
+        - revert
+  commit_groups:
+    title_maps:
+      feat: Features
+      fix: Bug fixes
+      docs: Documentation
+      style: Styles
+      refactor: Code refactoring
+      perf: Performance improvements
+      test: Tests
+      build: Builds
+      ci: Continuous integration
+      chore: Chores
+      revert: Reverts
+  header:
+    pattern: "^(\\w*)(?:\\(([\\w\\$\\.\\-\\*\\s]*)\\))?\\:\\s(.*)$"
+    pattern_maps:
+      - Type
+      - Scope
+      - Subject
+  notes:
+    keywords:
+      - BREAKING CHANGE

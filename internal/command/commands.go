@@ -32,12 +32,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	version = "unknown"
+)
+
+func SetVersion(v string) {
+	version = v
+}
+
 func NewRootCommand(optFns ...func(o *options)) *cobra.Command {
 	opts := newOptions(optFns...)
 
 	cmd := &cobra.Command{
-		Use:   "deltascii",
-		Short: "ΔSCII",
+		Use:     "deltascii",
+		Short:   "ΔSCII",
+		Version: version,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if err := cmd.Help(); err != nil {
 				return err
@@ -67,7 +76,7 @@ func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "Δ",
 		Aliases: []string{"delta"},
-		Short:   "ΔSCII(t) = ASCII(t) - ASCII(t-1)",
+		Short:   "ΔSCII(n) = ASCII(n) - ASCII(n-1)",
 		Args:    cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var r io.Reader
@@ -128,7 +137,7 @@ func NewAccumulateCommand(optFns ...func(o *options)) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "Σ",
 		Aliases: []string{"accumulate"},
-		Short:   "ASCII(t) = ΣΔSCII(t)",
+		Short:   "ASCII(n) = ΣΔSCII(n)",
 		Args:    cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var r io.Reader
