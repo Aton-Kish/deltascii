@@ -22,10 +22,21 @@ package main
 
 import (
 	"context"
+	_ "embed"
 	"os"
+	"strings"
 
 	"github.com/Aton-Kish/deltascii/internal/command"
 )
+
+var (
+	//go:embed VERSION
+	version string
+)
+
+func init() {
+	command.SetVersion(strings.TrimSpace(version))
+}
 
 func main() {
 	rootCmd := command.NewRootCommand()

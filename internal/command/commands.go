@@ -32,12 +32,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	version = "unknown"
+)
+
+func SetVersion(v string) {
+	version = v
+}
+
 func NewRootCommand(optFns ...func(o *options)) *cobra.Command {
 	opts := newOptions(optFns...)
 
 	cmd := &cobra.Command{
-		Use:   "deltascii",
-		Short: "ΔSCII",
+		Use:     "deltascii",
+		Short:   "ΔSCII",
+		Version: version,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if err := cmd.Help(); err != nil {
 				return err
