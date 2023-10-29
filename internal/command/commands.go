@@ -46,6 +46,7 @@ func Register() *xcommand {
 	accCmd := newAccumulateCommand()
 
 	rootCmd.AddCommand(deltaCmd.Command, accCmd.Command)
+	rootCmd.InitDefaultCompletionCmd()
 
 	return rootCmd
 }
@@ -67,11 +68,10 @@ func newRootCommand(optFns ...func(o *options)) *xcommand {
 		SilenceUsage: true,
 	})
 
+	cmd.InitDefaultVersionFlag()
+
 	cmd.SetIn(opts.stdio.in)
 	cmd.SetOutput(opts.stdio.err)
-
-	cmd.InitDefaultVersionFlag()
-	cmd.InitDefaultCompletionCmd()
 
 	return cmd
 }
