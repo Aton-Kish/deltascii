@@ -55,16 +55,9 @@ func newRootCommand(optFns ...func(o *options)) *xcommand {
 	opts := newOptions(optFns...)
 
 	cmd := newCommand(&cobra.Command{
-		Use:     "deltascii",
-		Short:   "ΔSCII",
-		Version: version,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			if err := cmd.Help(); err != nil {
-				return err
-			}
-
-			return nil
-		},
+		Use:          "deltascii",
+		Short:        "ΔSCII",
+		Version:      version,
 		SilenceUsage: true,
 	})
 
