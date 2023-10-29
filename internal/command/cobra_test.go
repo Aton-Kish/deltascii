@@ -222,6 +222,8 @@ Long
 
 ` + "```" + `shell
 RootUse Use [flags]
+RootUse Alias1 [flags]
+RootUse Alias2 [flags]
 ` + "```" + `
 
 ### Examples

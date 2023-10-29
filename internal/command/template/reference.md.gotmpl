@@ -16,6 +16,10 @@
 
 ```shell
 {{ .UseLine }}
+
+{{- range .AliasUseLines }}
+{{ . }}
+{{- end }}
 ```
 
 {{- end }}

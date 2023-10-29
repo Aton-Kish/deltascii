@@ -77,6 +77,23 @@ func newCommand(cmd *cobra.Command) *xcommand {
 	}
 }
 
+func (c *xcommand) AliasUseLines() []string {
+	line := c.UseLine()
+	lines := make([]string, 0, len(c.Aliases))
+	for _, alias := range c.Aliases {
+		var aliasLine string
+		if c.HasParent() {
+			aliasLine = strings.Replace(line, fmt.Sprintf("%s %s", c.Parent().CommandPath(), c.Name()), fmt.Sprintf("%s %s", c.Parent().CommandPath(), alias), 1)
+		} else {
+			aliasLine = strings.Replace(line, c.Name(), alias, 1)
+		}
+
+		lines = append(lines, aliasLine)
+	}
+
+	return lines
+}
+
 func (c *xcommand) GenerateReadme(dir string) error {
 	return c.generateDocument(readmeTemplate, dir, fileNameReadme)
 }
