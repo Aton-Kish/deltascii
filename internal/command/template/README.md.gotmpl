@@ -1,0 +1,16 @@
+# Command reference
+
+<sub><sup>Last updated on {{ now.Format "2006-01-02" }}</sup></sub>
+
+{{- println "" }}
+
+{{- define "toc" }}
+- [{{ .CommandPath }}]({{ replace .CommandPath " " "-" }}.md) - {{ .Short }}
+{{- range .Commands }}
+{{- if and .IsAvailableCommand (not .IsAdditionalHelpTopicCommand) }}
+{{- template "toc" . }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{- template "toc" . }}
