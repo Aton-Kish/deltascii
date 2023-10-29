@@ -40,10 +40,20 @@ func SetVersion(v string) {
 	version = v
 }
 
-func NewRootCommand(optFns ...func(o *options)) *cobra.Command {
+func Register() *xcommand {
+	rootCmd := newRootCommand()
+	deltaCmd := newDeltaCommand()
+	accCmd := newAccumulateCommand()
+
+	rootCmd.AddCommand(deltaCmd.Command, accCmd.Command)
+
+	return rootCmd
+}
+
+func newRootCommand(optFns ...func(o *options)) *xcommand {
 	opts := newOptions(optFns...)
 
-	cmd := &cobra.Command{
+	cmd := newCommand(&cobra.Command{
 		Use:     "deltascii",
 		Short:   "ΔSCII",
 		Version: version,
@@ -55,7 +65,7 @@ func NewRootCommand(optFns ...func(o *options)) *cobra.Command {
 			return nil
 		},
 		SilenceUsage: true,
-	}
+	})
 
 	cmd.SetIn(opts.stdio.in)
 	cmd.SetOutput(opts.stdio.err)
@@ -68,12 +78,12 @@ type deltaFlags struct {
 	output string
 }
 
-func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
+func newDeltaCommand(optFns ...func(o *options)) *xcommand {
 	opts := newOptions(optFns...)
 
 	flags := new(deltaFlags)
 
-	cmd := &cobra.Command{
+	cmd := newCommand(&cobra.Command{
 		Use:     "Δ",
 		Aliases: []string{"delta"},
 		Short:   "ΔSCII(n) = ASCII(n) - ASCII(n-1)",
@@ -109,7 +119,7 @@ func NewDeltaCommand(optFns ...func(o *options)) *cobra.Command {
 			return nil
 		},
 		SilenceUsage: true,
-	}
+	})
 
 	cmd.Flags().StringVarP(&flags.input, "input", "i", "", `input asciicast v2 file or "-" (read from stdin)`)
 	_ = cmd.MarkFlagRequired("input")
@@ -129,12 +139,12 @@ type accumulateFlags struct {
 	output string
 }
 
-func NewAccumulateCommand(optFns ...func(o *options)) *cobra.Command {
+func newAccumulateCommand(optFns ...func(o *options)) *xcommand {
 	opts := newOptions(optFns...)
 
 	flags := new(accumulateFlags)
 
-	cmd := &cobra.Command{
+	cmd := newCommand(&cobra.Command{
 		Use:     "Σ",
 		Aliases: []string{"accumulate"},
 		Short:   "ASCII(n) = ΣΔSCII(n)",
@@ -170,7 +180,7 @@ func NewAccumulateCommand(optFns ...func(o *options)) *cobra.Command {
 			return nil
 		},
 		SilenceUsage: true,
-	}
+	})
 
 	cmd.Flags().StringVarP(&flags.input, "input", "i", "", `input Δ-asciicast v2 file or "-" (read from stdin)`)
 	_ = cmd.MarkFlagRequired("input")

@@ -21,7 +21,6 @@
 package main
 
 import (
-	"context"
 	_ "embed"
 	"os"
 	"strings"
@@ -39,14 +38,7 @@ func init() {
 }
 
 func main() {
-	rootCmd := command.NewRootCommand()
-	deltaCmd := command.NewDeltaCommand()
-	accCmd := command.NewAccumulateCommand()
-
-	rootCmd.AddCommand(deltaCmd, accCmd)
-
-	ctx := context.Background()
-	if err := rootCmd.ExecuteContext(ctx); err != nil {
+	if err := command.Register().Execute(); err != nil {
 		os.Exit(1)
 	}
 }
