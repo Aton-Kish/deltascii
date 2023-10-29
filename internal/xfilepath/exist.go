@@ -18,27 +18,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package main
+package xfilepath
 
 import (
-	_ "embed"
 	"os"
-	"strings"
-
-	"github.com/Aton-Kish/deltascii/internal/command"
 )
 
-var (
-	//go:embed VERSION
-	version string
-)
-
-func init() {
-	command.SetVersion(strings.TrimSpace(version))
-}
-
-func main() {
-	if err := command.Register().Execute(); err != nil {
-		os.Exit(1)
-	}
+func Exist(name string) bool {
+	_, err := os.Stat(name)
+	return err == nil
 }

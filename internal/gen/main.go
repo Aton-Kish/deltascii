@@ -18,27 +18,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+//go:generate go run . -dir ../../docs/reference
+
 package main
 
 import (
-	_ "embed"
-	"os"
-	"strings"
+	"flag"
 
 	"github.com/Aton-Kish/deltascii/internal/command"
 )
 
-var (
-	//go:embed VERSION
-	version string
-)
-
-func init() {
-	command.SetVersion(strings.TrimSpace(version))
-}
-
 func main() {
-	if err := command.Register().Execute(); err != nil {
-		os.Exit(1)
+	dir := flag.String("dir", "./docs/reference", "output directory where command references will be generated")
+	flag.Parse()
+
+	cmd := command.Register()
+	if err := cmd.GenerateReadme(*dir); err != nil {
+		panic(err)
+	}
+	if err := cmd.GenerateReferences(*dir); err != nil {
+		panic(err)
 	}
 }

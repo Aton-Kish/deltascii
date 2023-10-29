@@ -1,0 +1,83 @@
+## `{{ .CommandPath }}`
+
+<sub><sup>Last updated on {{ now.Format "2006-01-02" }}</sup></sub>
+
+{{ .Short }}
+
+{{- if .Long }}
+
+### Synopsis
+
+{{ .Long }}
+
+{{- end }}
+
+{{- if .Runnable }}
+
+```shell
+{{ .UseLine }}
+
+{{- range .AliasUseLines }}
+{{ . }}
+{{- end }}
+```
+
+{{- end }}
+
+{{- if .Example }}
+
+### Examples
+
+```shell
+{{ .Example }}
+```
+
+{{- end }}
+
+{{- with .NonInheritedFlags }}
+{{- if .HasAvailableFlags }}
+
+### Options
+
+```shell
+{{ .FlagUsages -}}
+```
+
+{{- end }}
+{{- end }}
+
+{{- with .InheritedFlags }}
+{{- if .HasAvailableFlags }}
+
+### Options inherited from parent commands
+
+```shell
+{{ .FlagUsages -}}
+```
+
+{{- end }}
+{{- end }}
+
+{{- $HasSeeAlso := .HasParent }}
+{{- range .Commands }}
+{{- if or (not .IsAvailableCommand) .IsAdditionalHelpTopicCommand }}{{ continue }}{{ end }}
+{{- $HasSeeAlso = true }}
+{{- end }}
+
+{{- if $HasSeeAlso }}
+
+### See also
+
+{{- println "" -}}
+
+{{- if .HasParent }}
+- [{{ .Parent.CommandPath }}]({{ replace .Parent.CommandPath " " "-" }}.md) - {{ .Parent.Short }}
+{{- end }}
+
+{{- range .Commands }}
+{{- if and .IsAvailableCommand (not .IsAdditionalHelpTopicCommand) }}
+- [{{ .CommandPath }}]({{ replace .CommandPath " " "-" }}.md) - {{ .Short }}
+{{- end }}
+{{- end }}
+
+{{- end }}

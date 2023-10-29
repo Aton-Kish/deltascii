@@ -32,7 +32,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewDeltaCommand(t *testing.T) {
+func TestDeltaCommand(t *testing.T) {
 	deltacast := []byte(`{"version":2,"width":80,"height":24,"timestamp":1504467315,"env":{"SHELL":"/bin/zsh","TERM":"xterm-256color"}}
 [0,"o","h"]
 [0.1,"o","e"]
@@ -145,7 +145,7 @@ func TestNewDeltaCommand(t *testing.T) {
 			stdout := new(bytes.Buffer)
 			stderr := new(bytes.Buffer)
 
-			cmd := NewDeltaCommand(WithStdio(stdin, stdout, stderr))
+			cmd := newDeltaCommand(WithStdio(stdin, stdout, stderr))
 			cmd.SetArgs([]string{"--input", tt.args.input, "--output", tt.args.output})
 
 			// Act
@@ -167,7 +167,7 @@ func TestNewDeltaCommand(t *testing.T) {
 	}
 }
 
-func TestNewAccumulateCommand(t *testing.T) {
+func TestAccumulateCommand(t *testing.T) {
 	acccast := []byte(`{"version":2,"width":80,"height":24,"timestamp":1504467315,"env":{"SHELL":"/bin/zsh","TERM":"xterm-256color"}}
 [0,"o","h"]
 [0.1,"o","e"]
@@ -280,7 +280,7 @@ func TestNewAccumulateCommand(t *testing.T) {
 			stdout := new(bytes.Buffer)
 			stderr := new(bytes.Buffer)
 
-			cmd := NewAccumulateCommand(WithStdio(stdin, stdout, stderr))
+			cmd := newAccumulateCommand(WithStdio(stdin, stdout, stderr))
 			cmd.SetArgs([]string{"--input", tt.args.input, "--output", tt.args.output})
 
 			// Act

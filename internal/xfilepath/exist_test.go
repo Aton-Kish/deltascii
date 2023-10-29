@@ -18,27 +18,56 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package main
+package xfilepath
 
 import (
-	_ "embed"
-	"os"
-	"strings"
+	"path/filepath"
+	"testing"
 
-	"github.com/Aton-Kish/deltascii/internal/command"
+	"github.com/stretchr/testify/assert"
 )
 
-var (
-	//go:embed VERSION
-	version string
-)
+func TestExist(t *testing.T) {
+	type args struct {
+		name string
+	}
 
-func init() {
-	command.SetVersion(strings.TrimSpace(version))
-}
+	type expected struct {
+		res bool
+	}
 
-func main() {
-	if err := command.Register().Execute(); err != nil {
-		os.Exit(1)
+	tests := []struct {
+		name     string
+		args     args
+		expected expected
+	}{
+		{
+			name: "happy path: exist",
+			args: args{
+				name: t.TempDir(),
+			},
+			expected: expected{
+				res: true,
+			},
+		},
+		{
+			name: "happy path: not exist",
+			args: args{
+				name: filepath.Join(t.TempDir(), "not-exist"),
+			},
+			expected: expected{
+				res: false,
+			},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			// Act
+			actual := Exist(tt.args.name)
+
+			// Assert
+			assert.Equal(t, tt.expected.res, actual)
+		})
 	}
 }

@@ -1,0 +1,587 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="761px" height="641px" viewBox="-0.5 -0.5 761 641" content="&lt;mxfile&gt;&lt;diagram id=&quot;chIT7CmDMkMX6FULputr&quot; name=&quot;Page-1&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="0" y="0" width="760" height="640" fill="rgb(255, 255, 255)" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 758px; height: 1px; padding-top: 320px; margin-left: 1px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="380" y="324" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                </text>
+            </switch>
+        </g>
+        <rect x="40" y="40" width="240" height="240" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 238px; height: 1px; padding-top: 160px; margin-left: 41px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    {"version":2,"width":80,"height":24}
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [0.224325,"o","h"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [0.367988,"o","w"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [0.550396,"o","\u0008\u001b[K"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [0.725021,"o","e"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [0.885072,"o","l"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [1.053129,"o","l"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [1.269113,"o","o"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [1.493969,"o"," "]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [1.702706,"o","w"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [1.941363,"o","o"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [2.129294,"o","r"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [2.289209,"o","l"]
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    [2.481304,"o","d"]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="160" y="164" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    {"version":2,"width":80,"height":24}...
+                </text>
+            </switch>
+        </g>
+        <rect x="40" y="360" width="240" height="240" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 238px; height: 1px; padding-top: 480px; margin-left: 41px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    {"version":2,"width":80,"height":24}
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    <div style="border-color: var(--border-color);">
+                                        [0.224325,"o","h"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.143663,"o","w"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.182408,"o","\b\u001b[K"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.174625,"o","e"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.160051,"o","l"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.168057,"o","l"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.215984,"o","o"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.224856,"o"," "]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.208737,"o","w"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.238657,"o","o"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.187931,"o","r"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.159915,"o","l"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.192095,"o","d"]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="160" y="484" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    {"version":2,"width":80,"height":24}...
+                </text>
+            </switch>
+        </g>
+        <rect x="480" y="360" width="240" height="240" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 238px; height: 1px; padding-top: 480px; margin-left: 481px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    {"version":2,"width":80,"height":24}
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    <div style="border-color: var(--border-color);">
+                                        [0.224325,"o","h"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        <div style="border-color: var(--border-color);">
+                                            <font color="#ff0000">
+                                                <strike>
+                                                    [0.143663,"o","w"]
+                                                </strike>
+                                            </font>
+                                        </div>
+                                        <div style="border-color: var(--border-color);">
+                                            <font color="#ff0000">
+                                                <strike>
+                                                    [0.182408,"o","\b\u001b[K"]
+                                                </strike>
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <span style="background-color: initial;">
+                                                [0.174625,"o","e"]
+                                            </span>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.160051,"o","l"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.168057,"o","l"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.215984,"o","o"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.224856,"o"," "]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.208737,"o","w"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.238657,"o","o"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.187931,"o","r"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.159915,"o","l"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [0.192095,"o","d"]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="600" y="484" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    {"version":2,"width":80,"height":24}...
+                </text>
+            </switch>
+        </g>
+        <rect x="480" y="40" width="240" height="240" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 238px; height: 1px; padding-top: 160px; margin-left: 481px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    {"version":2,"width":80,"height":24}
+                                </div>
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    <div style="border-color: var(--border-color);">
+                                        [0.224325,"o","h"]
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        <div style="border-color: var(--border-color);">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    [0.367988,"o","w"]
+                                                </font>
+                                            </strike>
+                                        </div>
+                                        <div style="border-color: var(--border-color);">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    [0.550396,"o","\u0008\u001b[K"]
+                                                </font>
+                                            </strike>
+                                        </div>
+                                        <div>
+                                            <span style="background-color: initial;">
+                                                [
+                                            </span>
+                                            <span style="background-color: initial;">
+                                                <strike>
+                                                    <font color="#ff0000">
+                                                        0.725021
+                                                    </font>
+                                                </strike>
+                                            </span>
+                                            <span style="background-color: initial;">
+                                                <font color="#009900">
+                                                    0.39895
+                                                </font>
+                                                ,"o","e"]
+                                            </span>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    0.885072
+                                                </font>
+                                            </strike>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                0.559001
+                                            </font>
+                                            ,"o","l"]
+                                        </span>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    1.053129
+                                                </font>
+                                            </strike>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                0.727058
+                                            </font>
+                                            ,"o","l"]
+                                        </span>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    1.269113
+                                                </font>
+                                            </strike>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                0.943042
+                                            </font>
+                                            ,"o","o"]
+                                        </span>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    1.493969
+                                                </font>
+                                            </strike>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                1.167898
+                                            </font>
+                                            ,"o"," "]
+                                        </span>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    1.702706
+                                                </font>
+                                            </strike>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                1.376635
+                                            </font>
+                                            ,"o","w"]
+                                        </span>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    1.941363
+                                                </font>
+                                            </strike>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                1.615292
+                                            </font>
+                                            ,"o","o"]
+                                        </span>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    2.129294
+                                                </font>
+                                            </strike>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                1.803223
+                                            </font>
+                                            ,"o","r"]
+                                        </span>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <strike>
+                                                <font color="#ff0000">
+                                                    2.289209
+                                                </font>
+                                            </strike>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                1.963138
+                                            </font>
+                                            ,"o","l"]
+                                        </span>
+                                    </div>
+                                    <div style="border-color: var(--border-color);">
+                                        [
+                                        <span style="background-color: initial;">
+                                            <font color="#ff0000">
+                                                <strike>
+                                                    2.481304
+                                                </strike>
+                                            </font>
+                                        </span>
+                                        <span style="background-color: initial;">
+                                            <font color="#009900">
+                                                2.155233
+                                            </font>
+                                            ,"o","d"]
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="600" y="164" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    {"version":2,"width":80,"height":24}...
+                </text>
+            </switch>
+        </g>
+        <rect x="40" y="40" width="80" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 74px; height: 1px; padding-top: 50px; margin-left: 44px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                asciicast
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="44" y="54" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">
+                    asciicast
+                </text>
+            </switch>
+        </g>
+        <rect x="480" y="40" width="80" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 74px; height: 1px; padding-top: 50px; margin-left: 484px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                asciicast
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="484" y="54" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">
+                    asciicast
+                </text>
+            </switch>
+        </g>
+        <rect x="40" y="360" width="80" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 74px; height: 1px; padding-top: 370px; margin-left: 44px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                Δ-asciicast
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="44" y="374" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">
+                    Δ-asciicast
+                </text>
+            </switch>
+        </g>
+        <rect x="480" y="360" width="80" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 74px; height: 1px; padding-top: 370px; margin-left: 484px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                Δ-asciicast
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="484" y="374" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px">
+                    Δ-asciicast
+                </text>
+            </switch>
+        </g>
+        <path d="M 280 160 L 473.63 160" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" stroke-dasharray="8 8" pointer-events="stroke"/>
+        <path d="M 478.88 160 L 471.88 163.5 L 473.63 160 L 471.88 156.5 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 160 280 L 160 353.63" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 160 358.88 L 156.5 351.88 L 160 353.63 L 163.5 351.88 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 280 480 L 473.63 480" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 478.88 480 L 471.88 483.5 L 473.63 480 L 471.88 476.5 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 600 360 L 600 286.37" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 600 281.12 L 603.5 288.12 L 600 286.37 L 596.5 288.12 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <rect x="280" y="110" width="200" height="50" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 198px; height: 1px; padding-top: 135px; margin-left: 281px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    1. trim typo events
+                                    <br style="border-color: var(--border-color);"/>
+                                    2. update all subsequent events
+                                    <br style="border-color: var(--border-color);"/>
+                                    It's not practical to edit...
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="380" y="139" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    1. trim typo events...
+                </text>
+            </switch>
+        </g>
+        <rect x="280" y="460" width="200" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 198px; height: 1px; padding-top: 470px; margin-left: 281px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    just trim typo events
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="380" y="474" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    just trim typo events
+                </text>
+            </switch>
+        </g>
+        <rect x="160" y="310" width="80" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 320px; margin-left: 161px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    <b>
+                                        deltascii Δ
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="200" y="324" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    deltascii Δ
+                </text>
+            </switch>
+        </g>
+        <rect x="600" y="310" width="80" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 320px; margin-left: 601px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <div style="border-color: var(--border-color); text-align: left;">
+                                    <b>
+                                        deltascii Σ
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="640" y="324" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    deltascii Σ
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Text is not SVG - cannot display
+            </text>
+        </a>
+    </switch>
+</svg>
