@@ -19,6 +19,10 @@ go install github.com/Aton-Kish/deltascii@latest
 - [Concept guide](./concept-guide.md)
 - [How-to guide](./how-to-guide.md)
 
+## Reference
+
+- [Command reference](./reference/README.md)
+
 ## Changelog
 
 Refer to the [CHANGELOG](../CHANGELOG.md).
