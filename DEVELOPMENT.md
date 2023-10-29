@@ -2,12 +2,12 @@
 
 ## Setting up
 
-requirements:
+Requirements:
 
 - [Go](https://go.dev/) (v1.21.1 or higher)
 - [Task](https://taskfile.dev/) (v3.30.1 or higher)
 
-install dependencies:
+Install dependencies:
 
 ```shell
 task install
