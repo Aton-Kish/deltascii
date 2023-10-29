@@ -70,6 +70,9 @@ func newRootCommand(optFns ...func(o *options)) *xcommand {
 	cmd.SetIn(opts.stdio.in)
 	cmd.SetOutput(opts.stdio.err)
 
+	cmd.InitDefaultVersionFlag()
+	cmd.InitDefaultCompletionCmd()
+
 	return cmd
 }
 
