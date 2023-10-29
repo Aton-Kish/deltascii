@@ -42,6 +42,14 @@ tasks:
           OPTIONS: --fix
     desc: format
 
+  # generate
+  generate:
+    cmds:
+      - go generate ./...
+    desc: run go generate
+    preconditions:
+      - which go
+
   # test
   test:
     cmds:
